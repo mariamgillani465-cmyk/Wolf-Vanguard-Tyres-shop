@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Wolf Vanguard Tyres — Premium Performance</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --red:#e8192c;
+  --red-dark:#b5111f;
+  --red-glow:rgba(232,25,44,0.25);
+  --black:#0a0a0a;
+  --dark:#111111;
+  --dark2:#181818;
+  --dark3:#222222;
+  --grey:#2e2e2e;
+  --mid:#555;
+  --light:#aaa;
+  --white:#f5f5f5;
+  --font-head:'Barlow Condensed',sans-serif;
+  --font-body:'Barlow',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--font-body);
+  background:var(--black);
+  color:var(--white);
+  overflow-x:hidden;
+  cursor:default;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:var(--black);}
+::-webkit-scrollbar-thumb{background:var(--red);}
+
+/* ── UTILITY ── */
+.red{color:var(--red);}
+.tag{
+  display:inline-block;font-family:var(--font-head);
+  font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--red);border:1px solid var(--red);
+  padding:.25rem .75rem;margin-bottom:1.2rem;
+}
+.section-title{
+  font-family:var(--font-head);
+  font-size:clamp(2.4rem,5vw,4rem);
+  font-weight:900;
+  line-height:.95;
+  text-transform:uppercase;
+  letter-spacing:-.01em;
+  margin-bottom:1.2rem;
+}
+.section-sub{
+  font-size:1rem;color:var(--light);
+  line-height:1.75;max-width:520px;
+}
+section{padding:6rem 5vw;}
+
+/* ── NAVBAR ── */
+#navbar{
+  position:fixed;top:0;left:0;right:0;z-index:999;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 5vw;height:70px;
+  background:rgba(10,10,10,0);
+  transition:background .4s,border-color .4s;
+  border-bottom:1px solid transparent;
+}
+#navbar.scrolled{
+  background:rgba(10,10,10,.97);
+  border-bottom-color:rgba(232,25,44,.3);
+}
+.nav-logo{
+  font-family:var(--font-head);font-weight:900;
+  font-size:1.4rem;letter-spacing:.05em;text-transform:uppercase;
+  color:var(--white);text-decoration:none;
+  display:flex;align-items:center;gap:.6rem;
+}
+.nav-logo-icon{
+  width:34px;height:34px;
+  background:var(--red);
+  clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.75rem;font-weight:900;color:#fff;
+  flex-shrink:0;
+}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{
+  color:rgba(245,245,245,.65);text-decoration:none;
+  font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;
+  font-weight:500;transition:color .2s;
+}
+.nav-links a:hover{color:var(--red);}
+.nav-btn{
+  background:var(--red);color:#fff;border:none;
+  padding:.5rem 1.4rem;font-family:var(--font-head);
+  font-size:.9rem;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;cursor:pointer;
+  clip-path:polygon(0 0,calc(100% - 10px) 0,100% 100%,10px 100%);
+  transition:background .2s;
+}
+.nav-btn:hover{background:var(--red-dark);}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.nav-hamburger span{display:block;width:24px;height:2px;background:var(--white);transition:.3s;}
+
+/* ── HERO ── */
+#hero{
+  min-height:100vh;
+  display:flex;align-items:center;
+  padding:0 5vw;
+  position:relative;overflow:hidden;
+  background:var(--black);
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 80% at 75% 50%, rgba(232,25,44,.12) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 60% at 80% 50%, rgba(232,25,44,.07) 0%, transparent 50%),
+    linear-gradient(180deg,#0a0a0a 0%,#0d0d0d 100%);
+}
+/* Tyre rings background art */
+.hero-rings{
+  position:absolute;right:-5vw;top:50%;transform:translateY(-50%);
+  width:min(700px,80vw);height:min(700px,80vw);
+  opacity:.07;
+  pointer-events:none;
+}
+.ring{
+  position:absolute;border-radius:50%;
+  border:2px solid #fff;
+  top:50%;left:50%;transform:translate(-50%,-50%);
+}
+.ring:nth-child(1){width:100%;height:100%;}
+.ring:nth-child(2){width:82%;height:82%;border-width:8px;border-color:var(--red);opacity:2;}
+.ring:nth-child(3){width:64%;height:64%;}
+.ring:nth-child(4){width:46%;height:46%;border-width:6px;}
+.ring:nth-child(5){width:28%;height:28%;border-color:var(--red);border-width:10px;opacity:3;}
+/* tread marks */
+.hero-tread{
+  position:absolute;bottom:0;left:0;right:0;height:6px;
+  background:repeating-linear-gradient(90deg,var(--red) 0,var(--red) 40px,transparent 40px,transparent 60px);
+  opacity:.5;
+}
+.hero-diag{
+  position:absolute;right:0;top:0;bottom:0;
+  width:45%;
+  background:linear-gradient(to right,transparent,rgba(232,25,44,.04));
+  clip-path:polygon(15% 0,100% 0,100% 100%,0 100%);
+}
+.hero-content{position:relative;z-index:1;max-width:700px;}
+.hero-eyebrow{
+  display:flex;align-items:center;gap:1rem;
+  font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;
+  color:var(--red);margin-bottom:1.8rem;
+  animation:fadeUp .6s ease both;
+}
+.hero-eyebrow::before{
+  content:'';display:block;width:36px;height:2px;background:var(--red);
+}
+.hero-h1{
+  font-family:var(--font-head);
+  font-size:clamp(3.5rem,8vw,7.5rem);
+  font-weight:900;
+  line-height:.92;
+  text-transform:uppercase;
+  letter-spacing:-.02em;
+  margin-bottom:1.8rem;
+  animation:fadeUp .6s .15s ease both;
+}
+.hero-h1 .line2{
+  color:transparent;
+  -webkit-text-stroke:2px var(--red);
+}
+.hero-sub{
+  font-size:1.05rem;color:var(--light);
+  line-height:1.8;max-width:480px;
+  margin-bottom:2.8rem;
+  animation:fadeUp .6s .3s ease both;
+}
+.hero-btns{
+  display:flex;gap:1rem;flex-wrap:wrap;
+  animation:fadeUp .6s .45s ease both;
+}
+.btn-primary{
+  background:var(--red);color:#fff;
+  padding:.85rem 2.4rem;border:none;cursor:pointer;
+  font-family:var(--font-head);font-size:1rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  clip-path:polygon(0 0,calc(100% - 12px) 0,100% 100%,12px 100%);
+  transition:background .2s,transform .2s;
+  text-decoration:none;display:inline-block;
+}
+.btn-primary:hover{background:var(--red-dark);transform:translateY(-2px);}
+.btn-outline{
+  background:transparent;color:var(--white);
+  padding:.85rem 2.4rem;
+  border:1px solid rgba(245,245,245,.25);
+  cursor:pointer;font-family:var(--font-head);
+  font-size:1rem;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;
+  clip-path:polygon(0 0,calc(100% - 12px) 0,100% 100%,12px 100%);
+  transition:border-color .2s,color .2s,transform .2s;
+  text-decoration:none;display:inline-block;
+}
+.btn-outline:hover{border-color:var(--red);color:var(--red);transform:translateY(-2px);}
+.hero-stats{
+  display:flex;gap:3rem;margin-top:3.5rem;
+  padding-top:2rem;border-top:1px solid rgba(255,255,255,.08);
+  animation:fadeUp .6s .6s ease both;
+}
+.stat-num{
+  font-family:var(--font-head);font-size:2.2rem;
+  font-weight:900;color:var(--red);line-height:1;
+}
+.stat-label{font-size:.75rem;color:var(--light);text-transform:uppercase;letter-spacing:.1em;margin-top:.3rem;}
+
+/* ── ABOUT ── */
+#about{background:var(--dark);}
+.about-inner{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:5rem;align-items:center;
+}
+.about-visual{position:relative;}
+.about-img-box{
+  background:var(--dark3);
+  aspect-ratio:4/3;
+  position:relative;overflow:hidden;
+  clip-path:polygon(0 0,calc(100% - 24px) 0,100% 24px,100% 100%,24px 100%,0 calc(100% - 24px));
+}
+.tyre-art{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+}
+.tyre-svg-wrap{
+  width:65%;aspect-ratio:1;
+  animation:spinSlow 16s linear infinite;
+}
+@keyframes spinSlow{to{transform:rotate(360deg);}}
+.about-badge{
+  position:absolute;bottom:-1.5rem;right:-1rem;
+  background:var(--red);
+  padding:1.2rem 1.6rem;
+  font-family:var(--font-head);
+  clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,0 100%);
+}
+.about-badge-num{font-size:2.4rem;font-weight:900;line-height:1;}
+.about-badge-label{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;opacity:.85;}
+.about-points{display:flex;flex-direction:column;gap:1rem;margin-top:2.5rem;}
+.about-point{
+  display:flex;align-items:flex-start;gap:1rem;
+  padding:1.2rem;border:1px solid rgba(255,255,255,.06);
+  background:rgba(255,255,255,.02);
+  transition:border-color .3s,background .3s;
+}
+.about-point:hover{border-color:rgba(232,25,44,.4);background:rgba(232,25,44,.04);}
+.about-point-icon{
+  width:40px;height:40px;background:var(--red);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:1.1rem;
+}
+.about-point h4{font-family:var(--font-head);font-size:1rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-bottom:.25rem;}
+.about-point p{font-size:.82rem;color:var(--light);line-height:1.6;}
+
+/* ── SERVICES ── */
+#services{
+  background:var(--black);
+  position:relative;overflow:hidden;
+}
+#services::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--red),transparent);
+}
+.services-header{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  margin-bottom:3.5rem;flex-wrap:wrap;gap:1.5rem;
+}
+.services-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  background:rgba(255,255,255,.05);
+}
+.service-card{
+  background:var(--black);
+  padding:2.5rem 2rem;
+  position:relative;overflow:hidden;
+  transition:background .3s;
+}
+.service-card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:var(--red);transform:scaleX(0);transform-origin:left;
+  transition:transform .4s;
+}
+.service-card:hover{background:var(--dark2);}
+.service-card:hover::after{transform:scaleX(1);}
+.service-card-num{
+  font-family:var(--font-head);font-size:4rem;font-weight:900;
+  color:rgba(232,25,44,.1);line-height:1;margin-bottom:1.5rem;
+  transition:color .3s;
+}
+.service-card:hover .service-card-num{color:rgba(232,25,44,.2);}
+.service-icon-wrap{
+  width:52px;height:52px;background:rgba(232,25,44,.1);
+  border:1px solid rgba(232,25,44,.3);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:1.5rem;font-size:1.4rem;
+  transition:background .3s;
+}
+.service-card:hover .service-icon-wrap{background:var(--red);}
+.service-card h3{
+  font-family:var(--font-head);font-size:1.3rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.03em;margin-bottom:.7rem;
+}
+.service-card p{font-size:.84rem;color:var(--light);line-height:1.65;}
+
+/* ── PRODUCTS ── */
+#products{background:var(--dark);}
+.products-header{text-align:center;margin-bottom:3.5rem;}
+.products-header .section-sub{margin:0 auto;}
+.products-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;
+}
+.product-card{
+  background:var(--dark2);
+  position:relative;overflow:hidden;
+  clip-path:polygon(0 0,calc(100% - 16px) 0,100% 16px,100% 100%,0 100%);
+  cursor:pointer;transition:transform .3s;
+}
+.product-card:hover{transform:translateY(-6px);}
+.product-img{
+  aspect-ratio:1;background:var(--dark3);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.product-img svg{
+  width:70%;transition:transform .5s;
+}
+.product-card:hover .product-img svg{transform:rotate(15deg) scale(1.05);}
+.product-img-overlay{
+  position:absolute;inset:0;
+  background:radial-gradient(circle at 50% 50%, transparent 40%, rgba(10,10,10,.6) 100%);
+}
+.product-category-badge{
+  position:absolute;top:1rem;left:1rem;
+  background:var(--red);
+  font-family:var(--font-head);font-size:.68rem;
+  letter-spacing:.15em;text-transform:uppercase;
+  padding:.25rem .7rem;font-weight:700;
+}
+.product-info{padding:1.5rem;}
+.product-info h3{
+  font-family:var(--font-head);font-size:1.2rem;
+  font-weight:700;text-transform:uppercase;
+  letter-spacing:.03em;margin-bottom:.4rem;
+}
+.product-info p{font-size:.82rem;color:var(--light);line-height:1.6;margin-bottom:1rem;}
+.product-link{
+  font-family:var(--font-head);font-size:.8rem;
+  letter-spacing:.15em;text-transform:uppercase;color:var(--red);
+  text-decoration:none;display:flex;align-items:center;gap:.5rem;
+  font-weight:600;transition:gap .2s;
+}
+.product-card:hover .product-link{gap:.9rem;}
+.product-link::after{content:'→';}
+
+/* ── WHY CHOOSE US ── */
+#why{
+  background:var(--black);
+  position:relative;
+}
+.why-inner{
+  display:grid;grid-template-columns:1fr 1.4fr;gap:6rem;align-items:center;
+}
+.why-left{}
+.why-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:1.5px;
+  background:rgba(255,255,255,.05);margin-top:0;
+}
+.why-card{
+  background:var(--dark);
+  padding:2rem 1.8rem;
+  position:relative;
+  transition:background .3s;
+}
+.why-card::before{
+  content:'';position:absolute;top:0;left:0;width:3px;height:0;
+  background:var(--red);transition:height .4s;
+}
+.why-card:hover::before{height:100%;}
+.why-card:hover{background:var(--dark2);}
+.why-icon{
+  font-size:1.8rem;margin-bottom:1.2rem;display:block;
+}
+.why-card h4{
+  font-family:var(--font-head);font-size:1rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem;
+}
+.why-card p{font-size:.82rem;color:var(--light);line-height:1.6;}
+.why-promo{
+  background:var(--red);
+  padding:3rem;
+  clip-path:polygon(0 0,100% 0,100% calc(100% - 24px),calc(100% - 24px) 100%,0 100%);
+  position:relative;overflow:hidden;
+}
+.why-promo::before{
+  content:'';position:absolute;
+  width:300px;height:300px;border-radius:50%;
+  background:rgba(255,255,255,.06);
+  right:-80px;bottom:-80px;
+}
+.why-promo-label{
+  font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(255,255,255,.7);margin-bottom:1.2rem;
+  display:flex;align-items:center;gap:.8rem;
+}
+.why-promo-label::before{content:'';display:block;width:24px;height:1px;background:rgba(255,255,255,.5);}
+.why-promo h3{
+  font-family:var(--font-head);font-size:clamp(2rem,3.5vw,3rem);
+  font-weight:900;text-transform:uppercase;line-height:.95;
+  margin-bottom:1.5rem;
+}
+.why-promo p{font-size:.9rem;color:rgba(255,255,255,.8);line-height:1.7;margin-bottom:2rem;}
+.why-promo-btn{
+  display:inline-flex;align-items:center;gap:.8rem;
+  background:#fff;color:var(--red);
+  padding:.75rem 1.8rem;font-family:var(--font-head);
+  font-weight:700;font-size:.95rem;letter-spacing:.08em;text-transform:uppercase;
+  text-decoration:none;transition:transform .2s;
+  clip-path:polygon(0 0,calc(100% - 10px) 0,100% 100%,10px 100%);
+}
+.why-promo-btn:hover{transform:translateY(-2px);}
+
+/* ── CONTACT ── */
+#contact{background:var(--dark);}
+.contact-inner{
+  display:grid;grid-template-columns:1fr 1.2fr;gap:5rem;align-items:start;
+}
+.contact-info-items{margin-top:2.5rem;display:flex;flex-direction:column;gap:1.5rem;}
+.contact-item{
+  display:flex;align-items:flex-start;gap:1.2rem;
+  padding:1.4rem;border:1px solid rgba(255,255,255,.07);
+  background:rgba(255,255,255,.02);transition:border-color .3s;
+}
+.contact-item:hover{border-color:rgba(232,25,44,.3);}
+.contact-item-icon{
+  width:44px;height:44px;background:var(--red);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:1.1rem;
+}
+.contact-item-label{
+  font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--red);margin-bottom:.3rem;
+}
+.contact-item-val{font-size:.95rem;color:var(--white);line-height:1.5;}
+.whatsapp-btn{
+  display:flex;align-items:center;gap:.8rem;
+  background:#25D366;color:#fff;
+  padding:.85rem 1.8rem;border:none;cursor:pointer;
+  font-family:var(--font-head);font-size:1rem;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;
+  margin-top:1rem;
+  clip-path:polygon(0 0,calc(100% - 12px) 0,100% 100%,12px 100%);
+  transition:background .2s,transform .2s;
+  text-decoration:none;display:inline-flex;
+  width:fit-content;
+}
+.whatsapp-btn:hover{background:#1da851;transform:translateY(-2px);}
+.contact-form{
+  background:var(--dark2);
+  padding:3rem;
+  clip-path:polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%);
+}
+.contact-form h3{
+  font-family:var(--font-head);font-size:1.6rem;font-weight:700;
+  text-transform:uppercase;margin-bottom:2rem;
+}
+.form-group{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.2rem;}
+.form-group label{
+  font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--light);
+}
+.form-group input,
+.form-group textarea{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.1);
+  color:var(--white);
+  padding:.85rem 1rem;
+  font-family:var(--font-body);font-size:.9rem;
+  outline:none;transition:border-color .25s;
+  width:100%;
+}
+.form-group input:focus,
+.form-group textarea:focus{border-color:var(--red);}
+.form-group textarea{resize:vertical;min-height:110px;}
+.form-submit{
+  background:var(--red);color:#fff;border:none;
+  width:100%;padding:1rem;cursor:pointer;
+  font-family:var(--font-head);font-size:1rem;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;
+  transition:background .2s;margin-top:.5rem;
+}
+.form-submit:hover{background:var(--red-dark);}
+
+/* ── FOOTER ── */
+footer{
+  background:#070707;
+  border-top:1px solid rgba(232,25,44,.2);
+}
+.footer-top{
+  display:grid;grid-template-columns:2fr 1fr 1fr;gap:4rem;
+  padding:4rem 5vw;
+  border-bottom:1px solid rgba(255,255,255,.05);
+}
+.footer-brand-name{
+  font-family:var(--font-head);font-size:1.6rem;font-weight:900;
+  text-transform:uppercase;letter-spacing:.05em;margin-bottom:.8rem;
+  display:flex;align-items:center;gap:.6rem;
+}
+.footer-brand-name .nav-logo-icon{width:28px;height:28px;font-size:.65rem;}
+.footer-tagline{font-size:.85rem;color:var(--light);line-height:1.7;max-width:260px;margin-bottom:1.5rem;}
+.footer-socials{display:flex;gap:.75rem;}
+.social-btn{
+  width:36px;height:36px;border:1px solid rgba(255,255,255,.12);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--light);font-size:.8rem;text-decoration:none;
+  font-weight:700;transition:border-color .2s,color .2s,background .2s;
+}
+.social-btn:hover{border-color:var(--red);color:var(--red);}
+.footer-col h5{
+  font-family:var(--font-head);font-size:.78rem;font-weight:700;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--red);
+  margin-bottom:1.2rem;
+}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.65rem;}
+.footer-col ul li a{
+  font-size:.85rem;color:var(--light);text-decoration:none;transition:color .2s;
+}
+.footer-col ul li a:hover{color:var(--red);}
+.footer-bottom{
+  padding:1.5rem 5vw;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:1rem;
+}
+.footer-copy{font-size:.75rem;color:rgba(170,170,170,.5);}
+.footer-strip{
+  display:flex;align-items:center;gap:.5rem;
+  font-family:var(--font-head);font-size:.72rem;
+  letter-spacing:.1em;text-transform:uppercase;color:rgba(170,170,170,.4);
+}
+.footer-strip::before,.footer-strip::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.06);}
+
+/* ── DIVIDER ── */
+.divider-bar{
+  height:4px;
+  background:repeating-linear-gradient(90deg,var(--red) 0,var(--red) 40px,transparent 40px,transparent 56px);
+  opacity:.6;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(24px);}
+  to{opacity:1;transform:translateY(0);}
+}
+.reveal{
+  opacity:0;transform:translateY(30px);
+  transition:opacity .7s ease,transform .7s ease;
+}
+.reveal.visible{opacity:1;transform:none;}
+
+/* ── MOBILE NAV ── */
+.mobile-menu{
+  display:none;
+  position:fixed;top:70px;left:0;right:0;
+  background:rgba(10,10,10,.98);
+  padding:2rem 5vw;flex-direction:column;gap:1.5rem;
+  border-top:2px solid var(--red);z-index:998;
+}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{
+  color:var(--light);text-decoration:none;
+  font-family:var(--font-head);font-size:1.1rem;
+  font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+  padding:.5rem 0;border-bottom:1px solid rgba(255,255,255,.06);
+}
+.mobile-menu a:hover{color:var(--red);}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1100px){
+  .products-grid{grid-template-columns:repeat(2,1fr);}
+  .services-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:800px){
+  .nav-links,.nav-btn{display:none;}
+  .nav-hamburger{display:flex;}
+  .about-inner,.why-inner,.contact-inner{grid-template-columns:1fr;}
+  .hero-stats{gap:1.5rem;}
+  .footer-top{grid-template-columns:1fr 1fr;}
+  .products-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:500px){
+  .products-grid,.services-grid,.why-grid{grid-template-columns:1fr;}
+  .footer-top{grid-template-columns:1fr;}
+  .hero-h1{font-size:3.2rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon">W</div>
+    Wolf Vanguard <span style="color:var(--red)">Tyres</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#products">Tyres</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get Quote</button>
+  <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#products" onclick="closeMenu()">Tyres</a>
+  <a href="#why" onclick="closeMenu()">Why Us</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-rings">
+    <div class="ring"></div>
+    <div class="ring"></div>
+    <div class="ring"></div>
+    <div class="ring"></div>
+    <div class="ring"></div>
+  </div>
+  <div class="hero-diag"></div>
+  <div class="hero-tread"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Wolf Vanguard Tyres — Est. 2010</div>
+    <h1 class="hero-h1">
+      Premium Tyres<br/>
+      <span class="line2">For Maximum</span><br/>
+      Performance
+    </h1>
+    <p class="hero-sub">Drive with confidence using high-quality tyres built for safety, durability, and performance. Every road. Every condition. Every time.</p>
+    <div class="hero-btns">
+      <a href="#products" class="btn-primary">Shop Now</a>
+      <a href="#contact" class="btn-outline">Contact Us</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">10K+</div>
+        <div class="stat-label">Tyres Sold</div>
+      </div>
+      <div>
+        <div class="stat-num">15+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div>
+        <div class="stat-num">98%</div>
+        <div class="stat-label">Happy Customers</div>
+      </div>
+      <div>
+        <div class="stat-num">50+</div>
+        <div class="stat-label">Tyre Brands</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-bar"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-visual reveal">
+      <div class="about-img-box">
+        <div class="tyre-art">
+          <div class="tyre-svg-wrap">
+            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Outer tyre -->
+              <circle cx="100" cy="100" r="95" stroke="#333" stroke-width="10"/>
+              <!-- Tread blocks -->
+              <circle cx="100" cy="100" r="95" stroke="#e8192c" stroke-width="2" stroke-dasharray="18 8"/>
+              <!-- Mid ring -->
+              <circle cx="100" cy="100" r="72" stroke="#2a2a2a" stroke-width="18"/>
+              <circle cx="100" cy="100" r="72" stroke="#444" stroke-width="1" stroke-dasharray="12 6"/>
+              <!-- Inner wall -->
+              <circle cx="100" cy="100" r="50" stroke="#1a1a1a" stroke-width="4"/>
+              <!-- Rim -->
+              <circle cx="100" cy="100" r="44" fill="#1a1a1a" stroke="#333" stroke-width="2"/>
+              <!-- Spokes -->
+              <line x1="100" y1="56" x2="100" y2="144" stroke="#e8192c" stroke-width="3"/>
+              <line x1="56" y1="100" x2="144" y2="100" stroke="#e8192c" stroke-width="3"/>
+              <line x1="71" y1="71" x2="129" y2="129" stroke="#e8192c" stroke-width="2"/>
+              <line x1="129" y1="71" x2="71" y2="129" stroke="#e8192c" stroke-width="2"/>
+              <!-- Hub -->
+              <circle cx="100" cy="100" r="14" fill="#e8192c"/>
+              <circle cx="100" cy="100" r="7" fill="#1a1a1a"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="about-badge">
+        <div class="about-badge-num">15+</div>
+        <div class="about-badge-label">Years of Excellence</div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="tag">About Us</div>
+      <h2 class="section-title">Built on Trust.<br/>Driven by Quality.</h2>
+      <p class="section-sub">Wolf Vanguard Tyres has been a trusted name in the automotive industry since 2010. We combine deep expertise with an unwavering commitment to quality, offering premium tyre solutions for every vehicle type and driving need. Our dedicated team of professionals ensures every customer drives away with confidence.</p>
+      <div class="about-points">
+        <div class="about-point">
+          <div class="about-point-icon">🛡️</div>
+          <div>
+            <h4>Trusted Service</h4>
+            <p>Over a decade of trusted service with thousands of satisfied customers across the region.</p>
+          </div>
+        </div>
+        <div class="about-point">
+          <div class="about-point-icon">⭐</div>
+          <div>
+            <h4>Premium Quality</h4>
+            <p>We stock only the finest tyre brands, rigorously selected for safety, longevity and performance.</p>
+          </div>
+        </div>
+        <div class="about-point">
+          <div class="about-point-icon">🔧</div>
+          <div>
+            <h4>Expert Team</h4>
+            <p>Our certified technicians bring precision and professionalism to every service we perform.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header reveal">
+    <div>
+      <div class="tag">What We Do</div>
+      <h2 class="section-title">Our Services</h2>
+    </div>
+    <a href="#contact" class="btn-outline">Book a Service</a>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-card-num">01</div>
+      <div class="service-icon-wrap">🔄</div>
+      <h3>Tyre Replacement</h3>
+      <p>Fast, precise tyre replacements using genuine products. We fit all vehicle types including passenger cars, SUVs, and light trucks.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-card-num">02</div>
+      <div class="service-icon-wrap">⚙️</div>
+      <h3>Wheel Alignment</h3>
+      <p>Precision computerised alignment to ensure even tyre wear, better fuel efficiency, and a smoother, safer drive.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-card-num">03</div>
+      <div class="service-icon-wrap">⚖️</div>
+      <h3>Wheel Balancing</h3>
+      <p>Eliminate vibrations and extend tyre life with our dynamic wheel balancing service using state-of-the-art equipment.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-card-num">04</div>
+      <div class="service-icon-wrap">🔍</div>
+      <h3>Car Inspection</h3>
+      <p>Comprehensive vehicle checks covering tyres, brakes, suspension, and overall road-worthiness for total peace of mind.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider-bar"></div>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="products-header reveal">
+    <div class="tag">Our Range</div>
+    <h2 class="section-title">Explore Our Tyres</h2>
+    <p class="section-sub">From city roads to mountain trails, we have the perfect tyre for every journey and every vehicle.</p>
+  </div>
+  <div class="products-grid">
+    <div class="product-card reveal">
+      <div class="product-img">
+        <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="80" cy="80" r="76" stroke="#333" stroke-width="8"/>
+          <circle cx="80" cy="80" r="76" stroke="#e8192c" stroke-width="1.5" stroke-dasharray="14 6" opacity=".7"/>
+          <circle cx="80" cy="80" r="56" stroke="#2a2a2a" stroke-width="14"/>
+          <circle cx="80" cy="80" r="38" fill="#181818" stroke="#333" stroke-width="2"/>
+          <line x1="80" y1="42" x2="80" y2="118" stroke="#e8192c" stroke-width="2.5"/>
+          <line x1="42" y1="80" x2="118" y2="80" stroke="#e8192c" stroke-width="2.5"/>
+          <line x1="53" y1="53" x2="107" y2="107" stroke="#555" stroke-width="1.5"/>
+          <line x1="107" y1="53" x2="53" y2="107" stroke="#555" stroke-width="1.5"/>
+          <circle cx="80" cy="80" r="10" fill="#e8192c"/>
+          <circle cx="80" cy="80" r="5" fill="#111"/>
+        </svg>
+        <div class="product-img-overlay"></div>
+        <div class="product-category-badge">Car Tyres</div>
+      </div>
+      <div class="product-info">
+        <h3>Car Tyres</h3>
+        <p>Engineered for everyday city and highway driving. Exceptional grip, low noise, long wear life.</p>
+        <a href="#contact" class="product-link">Enquire Now</a>
+      </div>
+    </div>
+    <div class="product-card reveal">
+      <div class="product-img" style="background:#1a1713;">
+        <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="80" cy="80" r="76" stroke="#444" stroke-width="10"/>
+          <circle cx="80" cy="80" r="76" stroke="#e8192c" stroke-width="2" stroke-dasharray="20 6" opacity=".8"/>
+          <circle cx="80" cy="80" r="55" stroke="#2a2a2a" stroke-width="16"/>
+          <circle cx="80" cy="80" r="36" fill="#1a1a1a" stroke="#3a3a3a" stroke-width="3"/>
+          <line x1="80" y1="44" x2="80" y2="116" stroke="#e8192c" stroke-width="3"/>
+          <line x1="44" y1="80" x2="116" y2="80" stroke="#e8192c" stroke-width="3"/>
+          <line x1="54.6" y1="54.6" x2="105.4" y2="105.4" stroke="#e8192c" stroke-width="2"/>
+          <line x1="105.4" y1="54.6" x2="54.6" y2="105.4" stroke="#e8192c" stroke-width="2"/>
+          <circle cx="80" cy="80" r="11" fill="#e8192c"/>
+          <circle cx="80" cy="80" r="5" fill="#111"/>
+        </svg>
+        <div class="product-img-overlay"></div>
+        <div class="product-category-badge">SUV Tyres</div>
+      </div>
+      <div class="product-info">
+        <h3>SUV Tyres</h3>
+        <p>Heavy-duty construction for SUVs and 4x4s. Superior load capacity and all-condition stability.</p>
+        <a href="#contact" class="product-link">Enquire Now</a>
+      </div>
+    </div>
+    <div class="product-card reveal">
+      <div class="product-img" style="background:#150a0a;">
+        <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="80" cy="80" r="76" stroke="#550a0a" stroke-width="6"/>
+          <circle cx="80" cy="80" r="76" stroke="#e8192c" stroke-width="3" stroke-dasharray="8 4" opacity=".9"/>
+          <circle cx="80" cy="80" r="60" stroke="#1a0505" stroke-width="10"/>
+          <circle cx="80" cy="80" r="42" fill="#120808" stroke="#e8192c" stroke-width="1" opacity=".5"/>
+          <line x1="80" y1="38" x2="80" y2="122" stroke="#e8192c" stroke-width="3"/>
+          <line x1="38" y1="80" x2="122" y2="80" stroke="#e8192c" stroke-width="3"/>
+          <line x1="51" y1="51" x2="109" y2="109" stroke="#e8192c" stroke-width="2.5"/>
+          <line x1="109" y1="51" x2="51" y2="109" stroke="#e8192c" stroke-width="2.5"/>
+          <circle cx="80" cy="80" r="13" fill="#e8192c"/>
+          <circle cx="80" cy="80" r="6" fill="#080808"/>
+        </svg>
+        <div class="product-img-overlay"></div>
+        <div class="product-category-badge" style="background:#111;border:1px solid var(--red);">Performance</div>
+      </div>
+      <div class="product-info">
+        <h3>Performance Tyres</h3>
+        <p>Track-bred technology for sport and performance vehicles. Maximum grip at high speed.</p>
+        <a href="#contact" class="product-link">Enquire Now</a>
+      </div>
+    </div>
+    <div class="product-card reveal">
+      <div class="product-img" style="background:#0d1108;">
+        <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="80" cy="80" r="76" stroke="#2a3a1a" stroke-width="8"/>
+          <circle cx="80" cy="80" r="76" stroke="#6a8a3a" stroke-width="2" stroke-dasharray="22 8" opacity=".5"/>
+          <circle cx="80" cy="80" r="56" stroke="#1a2a0a" stroke-width="16"/>
+          <circle cx="80" cy="80" r="40" fill="#111a08" stroke="#3a4a2a" stroke-width="2"/>
+          <!-- all terrain tread pattern -->
+          <rect x="72" y="30" width="16" height="8" rx="2" fill="#4a6a2a" opacity=".7"/>
+          <rect x="72" y="122" width="16" height="8" rx="2" fill="#4a6a2a" opacity=".7"/>
+          <rect x="30" y="72" width="8" height="16" rx="2" fill="#4a6a2a" opacity=".7"/>
+          <rect x="122" y="72" width="8" height="16" rx="2" fill="#4a6a2a" opacity=".7"/>
+          <line x1="80" y1="40" x2="80" y2="120" stroke="#e8192c" stroke-width="2.5"/>
+          <line x1="40" y1="80" x2="120" y2="80" stroke="#e8192c" stroke-width="2.5"/>
+          <circle cx="80" cy="80" r="12" fill="#e8192c"/>
+          <circle cx="80" cy="80" r="5" fill="#0d1108"/>
+        </svg>
+        <div class="product-img-overlay"></div>
+        <div class="product-category-badge" style="background:#2a4a1a;">All-Terrain</div>
+      </div>
+      <div class="product-info">
+        <h3>All-Terrain Tyres</h3>
+        <p>Conquer any surface — gravel, mud, sand or tarmac. Built for adventure without compromise.</p>
+        <a href="#contact" class="product-link">Enquire Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section id="why">
+  <div class="why-inner">
+    <div>
+      <div class="tag">Why Choose Us</div>
+      <h2 class="section-title reveal">The Wolf Vanguard<br/>Difference</h2>
+      <p class="section-sub reveal">We don't just sell tyres — we deliver safety, performance, and lasting value with every fitment.</p>
+      <div class="why-grid" style="margin-top:2.5rem;">
+        <div class="why-card reveal">
+          <span class="why-icon">🏆</span>
+          <h4>High Quality Products</h4>
+          <p>Only certified, premium-grade tyres from globally trusted brands make it onto our shelves.</p>
+        </div>
+        <div class="why-card reveal">
+          <span class="why-icon">💰</span>
+          <h4>Affordable Prices</h4>
+          <p>Premium doesn't have to mean overpriced. We offer competitive pricing with zero compromise on quality.</p>
+        </div>
+        <div class="why-card reveal">
+          <span class="why-icon">👨‍🔧</span>
+          <h4>Professional Team</h4>
+          <p>Certified and experienced technicians who take pride in every job, however large or small.</p>
+        </div>
+        <div class="why-card reveal">
+          <span class="why-icon">⚡</span>
+          <h4>Fast Service</h4>
+          <p>Efficient, streamlined processes mean less waiting and more time on the road — done right, done fast.</p>
+        </div>
+      </div>
+    </div>
+    <div class="why-promo reveal">
+      <div class="why-promo-label">Limited Time Offer</div>
+      <h3>Free Wheel<br/>Alignment with<br/>Every Set</h3>
+      <p>Purchase a full set of 4 tyres and receive a complimentary computerised wheel alignment — worth up to $80. Drive away perfectly set up, at no extra cost.</p>
+      <a href="#contact" class="why-promo-btn">Claim Offer →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div>
+      <div class="tag">Get In Touch</div>
+      <h2 class="section-title reveal">Let's Get You<br/>on the Road</h2>
+      <p class="section-sub reveal">Ready to upgrade your tyres or need expert advice? Our team is here to help.</p>
+      <div class="contact-info-items reveal">
+        <div class="contact-item">
+          <div class="contact-item-icon">📞</div>
+          <div>
+            <div class="contact-item-label">Phone</div>
+            <div class="contact-item-val">+92 300 000 0000</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">📍</div>
+          <div>
+            <div class="contact-item-label">Location</div>
+            <div class="contact-item-val">Main Auto Market, Islamabad, Pakistan</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">🕐</div>
+          <div>
+            <div class="contact-item-label">Working Hours</div>
+            <div class="contact-item-val">Mon – Sat: 9:00 AM – 8:00 PM<br/>Sunday: 10:00 AM – 5:00 PM</div>
+          </div>
+        </div>
+      </div>
+      <a href="https://wa.me/923000000000" class="whatsapp-btn" target="_blank">
+        💬 Chat on WhatsApp
+      </a>
+    </div>
+    <div class="contact-form reveal">
+      <h3>Send Us a Message</h3>
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" placeholder="e.g. Ahmed Khan"/>
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" placeholder="+92 300 000 0000"/>
+      </div>
+      <div class="form-group">
+        <label>Your Message</label>
+        <textarea placeholder="Tell us about your tyre requirements or ask a question..."></textarea>
+      </div>
+      <button class="form-submit">Send Message →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-name">
+        <div class="nav-logo-icon">W</div>
+        Wolf Vanguard Tyres
+      </div>
+      <p class="footer-tagline">Your trusted tyre partner for over 15 years. Premium products. Expert service. Every road, every time.</p>
+      <div class="footer-socials">
+        <a href="#" class="social-btn">f</a>
+        <a href="#" class="social-btn">in</a>
+        <a href="#" class="social-btn">tw</a>
+        <a href="#" class="social-btn">yt</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Quick Links</h5>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#products">Our Tyres</a></li>
+        <li><a href="#why">Why Choose Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="#services">Tyre Replacement</a></li>
+        <li><a href="#services">Wheel Alignment</a></li>
+        <li><a href="#services">Wheel Balancing</a></li>
+        <li><a href="#services">Car Inspection</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Wolf Vanguard Tyres. All rights reserved.</div>
+    <div class="footer-strip">Built for the road</div>
+  </div>
+</footer>
+
+<script>
+// Navbar scroll
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Mobile menu
+function toggleMenu(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+function closeMenu(){
+  document.getElementById('mobileMenu').classList.remove('open');
+}
+
+// Scroll reveal
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, {threshold: 0.12});
+revealEls.forEach(el => observer.observe(el));
+
+// Stagger children in grids
+document.querySelectorAll('.services-grid, .products-grid, .why-grid').forEach(grid => {
+  grid.querySelectorAll('.reveal').forEach((card, i) => {
+    card.style.transitionDelay = (i * 0.1) + 's';
+  });
+});
+</script>
+</body>
+</html>
